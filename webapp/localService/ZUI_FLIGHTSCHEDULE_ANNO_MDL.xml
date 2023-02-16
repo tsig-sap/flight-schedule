@@ -21,18 +21,18 @@
     <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HTML5',Version='0001',SAP__Origin='')/$value">
         <edmx:Include Namespace="com.sap.vocabularies.HTML5.v1" Alias="HTML5"/>
     </edmx:Reference>
-    <edmx:Reference Uri="../../../sap/zc_flightschedule_cds/$metadata">
-        <edmx:Include Namespace="ZC_FLIGHTSCHEDULE_CDS" Alias="SAP"/>
+    <edmx:Reference Uri="../../../sap/zui_flightschedule_srv/$metadata">
+        <edmx:Include Namespace="ZUI_FLIGHTSCHEDULE_SRV" Alias="SAP"/>
     </edmx:Reference>
     <edmx:DataServices>
-        <Schema Namespace="zc_flightschedule_cds_van.v1" xmlns="http://docs.oasis-open.org/odata/ns/edm">
-            <Annotations Target="ZC_FLIGHTSCHEDULE_CDS.I_CountrySrchHelpType/CountryThreeLetterISOCode">
+        <Schema Namespace="zui_flightschedule_anno_mdl.v1" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <Annotations Target="ZUI_FLIGHTSCHEDULE_SRV.I_CountrySrchHelpType/CountryThreeLetterISOCode">
                 <Annotation Term="UI.Hidden"/>
             </Annotations>
-            <Annotations Target="ZC_FLIGHTSCHEDULE_CDS.I_CountrySrchHelpType/CountryThreeDigitISOCode">
+            <Annotations Target="ZUI_FLIGHTSCHEDULE_SRV.I_CountrySrchHelpType/CountryThreeDigitISOCode">
                 <Annotation Term="UI.Hidden"/>
             </Annotations>
-            <Annotations Target="ZC_FLIGHTSCHEDULE_CDS.ZC_FlightScheduleType">
+            <Annotations Target="ZUI_FLIGHTSCHEDULE_SRV.ZC_FlightScheduleType">
                 <Annotation Term="UI.Facets">
                     <Collection>
                         <Record Type="UI.CollectionFacet">

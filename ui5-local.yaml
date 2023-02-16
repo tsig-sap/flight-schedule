@@ -6,7 +6,7 @@ metadata:
 type: application
 framework:
   name: SAPUI5
-  version: 1.84.0
+  version: 1.96.6
   libraries:
     - name: sap.m
     - name: sap.ui.core
@@ -27,7 +27,7 @@ server:
     - name: fiori-tools-proxy
       afterMiddleware: compression
       configuration:
-        ignoreCertError: true # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
+        ignoreCertError: false # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
         backend:
           - path: /sap
             url: https://pcoe2021.sigma.co.id:8443
@@ -36,7 +36,7 @@ server:
       beforeMiddleware: csp
       configuration:
         service:
-          urlPath: /sap/opu/odata/sap/ZC_FLIGHTSCHEDULE_CDS
+          urlPath: /sap/opu/odata/sap/ZUI_FLIGHTSCHEDULE_SRV
           metadataXmlPath: ./webapp/localService/metadata.xml
           mockdataRootPath: ./webapp/localService/data
           generateMockData: true
