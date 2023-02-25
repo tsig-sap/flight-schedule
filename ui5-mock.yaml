@@ -1,5 +1,3 @@
-# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
-
 specVersion: "2.5"
 metadata:
   name: sflight.flightschedule
@@ -9,7 +7,7 @@ server:
     - name: fiori-tools-proxy
       afterMiddleware: compression
       configuration:
-        ignoreCertError: false # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
+        ignoreCertError: false
         ui5:
           path:
             - /resources
@@ -18,7 +16,7 @@ server:
         backend:
           - path: /sap
             url: https://pcoe2021.sigma.co.id:8443
-            client: '100'
+            client: "100"
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:
@@ -29,7 +27,11 @@ server:
       beforeMiddleware: csp
       configuration:
         service:
-          urlPath: /sap/opu/odata/sap/ZUI_FLIGHTSCHEDULE_SRV
-          metadataXmlPath: ./webapp/localService/metadata.xml
-          mockdataRootPath: ./webapp/localService/data
-          generateMockData: true
+          - urlPath: /sap/opu/odata/sap/ZUI_FLIGHTSCHEDULE_SRV
+            metadataXmlPath: ./webapp/localService/metadata.xml
+            mockdataRootPath: ./webapp/localService/data
+            generateMockData: true
+          - urlPath: /sap/opu/odata/sap/ZUI_FLIGHTSCHEDULE_SRV/
+            metadataXmlPath: ./webapp/localService/metadata.xml
+            mockdataRootPath: ./webapp/localService/mockdata
+            generateMockData: true

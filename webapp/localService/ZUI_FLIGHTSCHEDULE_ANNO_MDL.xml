@@ -32,40 +32,35 @@
             <Annotations Target="ZUI_FLIGHTSCHEDULE_SRV.I_CountrySrchHelpType/CountryThreeDigitISOCode">
                 <Annotation Term="UI.Hidden"/>
             </Annotations>
+            <Annotations Target="ZUI_FLIGHTSCHEDULE_SRV.ZC_FlightScheduleType/DistanceUnit">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
             <Annotations Target="ZUI_FLIGHTSCHEDULE_SRV.ZC_FlightScheduleType">
                 <Annotation Term="UI.Facets">
                     <Collection>
-                        <Record Type="UI.CollectionFacet">
-                            <PropertyValue Property="Label" String="Basic Data"/>
-                            <PropertyValue Property="ID" String="BasicDataCollectionFacet"/>
-                            <PropertyValue Property="Facets">
-                                <Collection>
-                                    <Record Type="UI.ReferenceFacet">
-                                        <PropertyValue Property="Label" String="Flight From"/>
-                                        <PropertyValue Property="ID" String="FlightFromGroupReferenceFacet"/>
-                                        <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#FlightFromFieldGroup"/>
-                                    </Record>
-                                    <Record Type="UI.ReferenceFacet">
-                                        <PropertyValue Property="Label" String="Flight To"/>
-                                        <PropertyValue Property="ID" String="FlightToGroupReferenceFacet"/>
-                                        <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#FlightToFieldGroup"/>
-                                    </Record>
-                                </Collection>
-                            </PropertyValue>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="General Information"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.Identification"/>
                         </Record>
                         <Record Type="UI.ReferenceFacet">
-                            <PropertyValue Property="Label" String="Time Schedule"/>
-                            <PropertyValue Property="ID" String="TimeScheduleGroupReferenceFacet"/>
-                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#TimeScheduleFieldGroup"/>
-                        </Record>
-                        <Record Type="UI.ReferenceFacet">
-                            <PropertyValue Property="Label" String="Other Information"/>
-                            <PropertyValue Property="ID" String="OtherInformationGroupReferenceFacet"/>
-                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#OtherInformationFieldGroup"/>
+                            <PropertyValue Property="Label" String="Related Flights"/>
+                            <PropertyValue Property="Target" AnnotationPath="to_Flight/@UI.LineItem"/>
                         </Record>
                     </Collection>
                 </Annotation>
-                <Annotation Term="UI.FieldGroup" Qualifier="FlightFromFieldGroup">
+                <Annotation Term="UI.HeaderFacets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Origin"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#FlightFrom"/>
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Destination"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#FlightTo"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="FlightFrom">
                     <Record>
                         <PropertyValue Property="Data">
                             <Collection>
@@ -82,7 +77,7 @@
                         </PropertyValue>
                     </Record>
                 </Annotation>
-                <Annotation Term="UI.FieldGroup" Qualifier="FlightToFieldGroup">
+                <Annotation Term="UI.FieldGroup" Qualifier="FlightTo">
                     <Record>
                         <PropertyValue Property="Data">
                             <Collection>
@@ -94,43 +89,6 @@
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="AirportTo"/>
-                                </Record>
-                            </Collection>
-                        </PropertyValue>
-                    </Record>
-                </Annotation>
-                <Annotation Term="UI.FieldGroup" Qualifier="OtherInformationFieldGroup">
-                    <Record>
-                        <PropertyValue Property="Data">
-                            <Collection>
-                                <Record Type="UI.DataField">
-                                    <PropertyValue Property="Value" Path="Distance"/>
-                                </Record>
-                                <Record Type="UI.DataField">
-                                    <PropertyValue Property="Value" Path="DistanceUnit"/>
-                                </Record>
-                                <Record Type="UI.DataField">
-                                    <PropertyValue Property="Value" Path="FlightType"/>
-                                </Record>
-                                <Record Type="UI.DataField">
-                                    <PropertyValue Property="Value" Path="Period"/>
-                                </Record>
-                            </Collection>
-                        </PropertyValue>
-                    </Record>
-                </Annotation>
-                <Annotation Term="UI.FieldGroup" Qualifier="TimeScheduleFieldGroup">
-                    <Record>
-                        <PropertyValue Property="Data">
-                            <Collection>
-                                <Record Type="UI.DataField">
-                                    <PropertyValue Property="Value" Path="FlightTime"/>
-                                </Record>
-                                <Record Type="UI.DataField">
-                                    <PropertyValue Property="Value" Path="DepartTime"/>
-                                </Record>
-                                <Record Type="UI.DataField">
-                                    <PropertyValue Property="Value" Path="ArrivalTime"/>
                                 </Record>
                             </Collection>
                         </PropertyValue>
@@ -152,13 +110,37 @@
                         </PropertyValue>
                     </Record>
                 </Annotation>
+                <Annotation Term="UI.Identification">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="FlightTime"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="DepartTime"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ArrivalTime"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Distance"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="FlightType"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Period"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
                 <Annotation Term="UI.LineItem">
                     <Collection>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="Airline"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
                         </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="FlightNumber"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
                         </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="CountryFrom"/>
