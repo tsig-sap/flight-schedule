@@ -10,9 +10,9 @@
     ],
     "main": "webapp/index.html",
     "devDependencies": {
-        "@sap/ux-specification": "^1.96.33",
+        "@sap/ux-specification": "UI5-1.96",
         "@sap/ux-ui5-fe-mockserver-middleware": "1",
-        "@sap/ux-ui5-tooling": "1",
+        "@sap/ux-ui5-tooling": "^1.9.6",
         "@ui5/cli": "^2.14.1",
         "rimraf": "3.0.2"
     },
